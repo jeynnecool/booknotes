@@ -5,7 +5,6 @@
 **Chacon, Scott, Pro Git, 2009**
 
 # Chapter 1 Getting Started
-----
 
 ##### Think as Data
 
@@ -17,7 +16,7 @@ Git thinks of its data more like a set of snapshots of a mini file system. Every
 
 The mechanism that Git uses for this check-summing is called a SHA-1 hash. This is a 40-character string composed of hexadecimal characters (0–9 and a–f) and calculated based on the contents of a file or directory structure in Git. A SHA-1 hash looks something like this:
 
-24b9da6552252987aa493b52f8696cd6d3b00373
+`24b9da6552252987aa493b52f8696cd6d3b00373`
 
 ##### Only Add Data
 
@@ -34,7 +33,6 @@ nearly all of actions in Git only add data to the Git database.
 modify file in local directory --> stage files, adding snapshots to your staging area --> commit files in staging area and stores that snapshot permanently to Git directory
 
 # Chapter 2 Git Basics
-----
 
 **Git Clone**
 
@@ -76,11 +74,11 @@ example of .gitignore
 /TODO # only ignore the root TODO file, not subdir/TODO
 build/ # ignore all files in the build/ directory
 doc/*.txt # ignore doc/notes.txt, but not doc/server/arch.txt
-```
+`
 
 **Viewing Staged and Unstaged Changes**
 
-```git diff --cached``` to see what you've staged that will go into your next commit.
+`git diff --cached` to see what you've staged that will go into your next commit.
 
 ```
 $ git diff
@@ -103,7 +101,7 @@ To remove a file from Git, you have to remove it from your tracked file (more ac
 
 To keep the file in your working tree but remove it from your staging area, you can:
  - add it to .gitignore
- - use ```--cached``` option
+ - use `--cached` option
 
 ```
 $ git rm [file]
@@ -131,14 +129,14 @@ $ git log p -2  // -p shows the diff introduced, -2 limits the output to only th
 $ git log --stat  // abbreviated stats
 ```
 
-```--pretty``` changes the log output to formats, other options inlcuding *short*, *full*, *fuller*. Use *format* to specify your own log output format.
+`--pretty` changes the log output to formats, other options inlcuding *short*, *full*, *fuller*. Use *format* to specify your own log output format.
 
 ```
 $ git log --pretty=online
 $ git log --pretty=format:"%h - %an, %ar : %s"
 ```
 
-```--since``` and ```--until``` are useful for time-limiting options.
+`--since` and `--until` are useful for time-limiting options.
 
 **Changing Last Commit**
 
@@ -205,7 +203,6 @@ $ git remote rm [shortname]  // remove remote
 
 
 # Chapter 3 Git Branching
------
 
 killer feature
 
@@ -214,7 +211,7 @@ Branching means you diverge from the main line of development and continue to do
 #### Gib Object Type
 
 This part of notes are taken from "O'Reilly: Version Control with Git".
-http://shop.oreilly.com/product/9780596520137.do
+[http://shop.oreilly.com/product/9780596520137.do](http://shop.oreilly.com/product/9780596520137.do)
 
 **Blob**
 
@@ -244,7 +241,7 @@ A branch in Git is simply a light weight movable pointer to one of commits. The 
 $ git branch [new_branch]
 ```
 
-Git keeps a special pointer =HEAD=. This is a pointer to the local branch you're currently on. To switch to an existing branch, you run the =git checkout= command.
+Git keeps a special pointer `HEAD`. This is a pointer to the local branch you're currently on. To switch to an existing branch, you run the `git checkout` command.
 
 ```
 $ git checkout [branch_switch_to]
@@ -253,7 +250,7 @@ $ git checkout [branch_switch_to]
 **Merging Branch**
 
  - First checkout the branch you want to merge
- - Then run =git merge=
+ - Then run `git merge`
 
 ```
 $ git checkout [branch_to_merge]
@@ -274,9 +271,9 @@ If merge branches have more than one parents, Git calculate for best common ance
 
 ##### Basic Merge conflict
 
-If merge conflict, Git doesn't automatically create a new merge commit. Run =git status= to check conflicts.
+If merge conflict, Git doesn't automatically create a new merge commit. Run `git status` to check conflicts.
 
-To resolve conflicts, you can use =git mergetool= to open graphical tool.
+To resolve conflicts, you can use `git mergetool` to open graphical tool.
 
 ##### Branch Management
 
