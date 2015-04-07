@@ -1,32 +1,34 @@
 # Pro Git
 
 **date: 20140730-15:39**
+
 **tags: git software-development**
+
 **Chacon, Scott, Pro Git, 2009**
 
 # Chapter 1 Getting Started
 
-### Think as Data
+##### Think as Data
 
 The major difference between Git and any other VCS(subversion and friends included) is the way Git thinks about its data. 
 
 Git thinks of its data more like a set of snapshots of a mini file system. Every time you commit, or save the state of your project in Git, it basically takes a picture of what your files look like at that moment and stores a reference to that snapshot.
 
-### SHA-1 hash for Checksum
+##### SHA-1 hash for Checksum
 
 The mechanism that Git uses for this check-summing is called a SHA-1 hash. This is a 40-character string composed of hexadecimal characters (0–9 and a–f) and calculated based on the contents of a file or directory structure in Git. A SHA-1 hash looks something like this:
 
-### Only Add Data
+##### Only Add Data
 
 nearly all of actions in Git only add data to the Git database.
 
-### Three Main States
+##### Three Main States
 
  - committed : data is safely stored in your local database
  - modified : you've changed the file but have not committed it to your database yet
  - staged : you have marked a modified file in its current version to go into your next commit snapshot
 
-### Normal Git Workflow
+##### Normal Git Workflow
 
 modify file in local directory --> stage files, adding snapshots to your staging area --> commit files in staging area and stores that snapshot permanently to Git directory
 
@@ -53,17 +55,17 @@ $ git status
 $ git add [file]
 ```
 
-Git stage the file exactly as it is when you run <code>git add</code>. If you modify a file after staging, you have to run <code>git add</code> again.
+Git stage the file exactly as it is when you run `git add`. If you modify a file after staging, you have to run `git add` again.
 
 ##### Ignoring Files
 
-.gitignore is a log file listing patterns that match those files to be ignored.
+`.gitignore` is a log file listing patterns that match those files to be ignored.
 
 ```
 $ git git-ignore [file]
 ```
 
-example of .gitignore
+example of `.gitignore`
 
 ```
 # a comment this is ignored
@@ -72,7 +74,7 @@ example of .gitignore
 /TODO # only ignore the root TODO file, not subdir/TODO
 build/ # ignore all files in the build/ directory
 doc/*.txt # ignore doc/notes.txt, but not doc/server/arch.txt
-`
+```
 
 ##### Viewing Staged and Unstaged Changes
 
@@ -98,7 +100,7 @@ $ git commit -a -m "leave comments here" //skip stagging (git add part)
 To remove a file from Git, you have to remove it from your tracked file (more accurately removing it from your staging area) and then commit.
 
 To keep the file in your working tree but remove it from your staging area, you can:
- - add it to .gitignore
+ - add it to `.gitignore`
  - use `--cached` option
 
 ```
