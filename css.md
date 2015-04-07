@@ -2,13 +2,11 @@
 
 **date: 20140718-15:55**
 
-**tag: css**
+**tags: css**
 
 **Advanced Web Standards Solutions**
 
-**Author: Andy Buddy, Cameron Moll, and Simon Collison**
-
-
+**author: Andy Buddy, Cameron Moll, and Simon Collison**
 
 # 1. Setting the foundation
 
@@ -273,7 +271,7 @@ Some people have experimented with writing comments in PHP format and then servi
 The best option is probably to enable server-side compression. if you are using Apache, talk to your host to install mod_gzip or mod_deflate. decompress file on the fly.
 
 If you don’t have access to these Apache modules, you still may be able to
-compress your files by following the tutorial found at http://tinyurl.com/8w9rp
+compress your files by following the tutorial found at http://www.fiftyfoureleven.com/weblog/web-development/css/the-definitive-css-gzip-method
 
 ### Style guide
 
@@ -379,7 +377,7 @@ use the =:after= pseudo-class in combination with the content declaration to add
   clear: both;
 }
 
-this trick fails in IE6 and below.
+/*this trick fails in IE6 and below.\*/
 
 .clear {display: inline-block;}
 
@@ -492,7 +490,7 @@ one of the most robust way
 
 add an addition, empty span inside the element you wish to replace. 
 
-<src>
+```
 <h2>
   <span></span>Hello World
 </h2>
