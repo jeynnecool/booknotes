@@ -1,49 +1,45 @@
 # Pro Git
 
-**date 20140730-15:39**
-**tags git software-development**
+**date: 20140730-15:39**
+**tags: git software-development**
 **Chacon, Scott, Pro Git, 2009**
 
 # Chapter 1 Getting Started
-----
 
-##### Think as Data
+### Think as Data
 
 The major difference between Git and any other VCS(subversion and friends included) is the way Git thinks about its data. 
 
 Git thinks of its data more like a set of snapshots of a mini file system. Every time you commit, or save the state of your project in Git, it basically takes a picture of what your files look like at that moment and stores a reference to that snapshot.
 
-##### SHA-1 hash for Checksum
+### SHA-1 hash for Checksum
 
 The mechanism that Git uses for this check-summing is called a SHA-1 hash. This is a 40-character string composed of hexadecimal characters (0–9 and a–f) and calculated based on the contents of a file or directory structure in Git. A SHA-1 hash looks something like this:
 
-24b9da6552252987aa493b52f8696cd6d3b00373
-
-##### Only Add Data
+### Only Add Data
 
 nearly all of actions in Git only add data to the Git database.
 
-##### Three Main States
+### Three Main States
 
  - committed : data is safely stored in your local database
  - modified : you've changed the file but have not committed it to your database yet
  - staged : you have marked a modified file in its current version to go into your next commit snapshot
 
-##### Normal Git Workflow
+### Normal Git Workflow
 
 modify file in local directory --> stage files, adding snapshots to your staging area --> commit files in staging area and stores that snapshot permanently to Git directory
 
 # Chapter 2 Git Basics
-----
 
-**Git Clone**
+##### Git Clone
 
 ```
 $ git clone git://github.com/username/projectname.git
 $ git clone git://github.com/username/projectname.git localdirectory
 ```
 
-**Check Status**
+##### Check Status
 
 this command is to determine which file are in which state.
 
@@ -51,7 +47,7 @@ this command is to determine which file are in which state.
 $ git status
 ```
 
-**Staging Modified Files**
+##### Staging Modified Files
 
 ```
 $ git add [file]
@@ -59,7 +55,7 @@ $ git add [file]
 
 Git stage the file exactly as it is when you run <code>git add</code>. If you modify a file after staging, you have to run <code>git add</code> again.
 
-**Ignoring Files**
+##### Ignoring Files
 
 .gitignore is a log file listing patterns that match those files to be ignored.
 
@@ -76,11 +72,11 @@ example of .gitignore
 /TODO # only ignore the root TODO file, not subdir/TODO
 build/ # ignore all files in the build/ directory
 doc/*.txt # ignore doc/notes.txt, but not doc/server/arch.txt
-```
+`
 
-**Viewing Staged and Unstaged Changes**
+##### Viewing Staged and Unstaged Changes
 
-```git diff --cached``` to see what you've staged that will go into your next commit.
+`git diff --cached` to see what you've staged that will go into your next commit.
 
 ```
 $ git diff
@@ -89,7 +85,7 @@ or
 $ git diff --staged
 ```
 
-**Committing Changes**
+##### Committing Changes
 
 ```
 $ git commit
@@ -97,13 +93,13 @@ $ git commit -m "leave comments here" // if comments leave as blank, aborting co
 $ git commit -a -m "leave comments here" //skip stagging (git add part)
 ```
 
-**Removing Files**
+##### Removing Files
 
 To remove a file from Git, you have to remove it from your tracked file (more accurately removing it from your staging area) and then commit.
 
 To keep the file in your working tree but remove it from your staging area, you can:
  - add it to .gitignore
- - use ```--cached``` option
+ - use `--cached` option
 
 ```
 $ git rm [file]
@@ -117,13 +113,13 @@ $ git rm log/\*.log
 $ git rm \*~  // removes all files that end with .
 ```
 
-**Moving Files**
+##### Moving Files
 
 ```
 $ git mv [file_from] [file_to]
 ```
 
-**Viewing the Commit History**
+##### Viewing the Commit History
 
 ```
 $ git log
@@ -131,90 +127,88 @@ $ git log p -2  // -p shows the diff introduced, -2 limits the output to only th
 $ git log --stat  // abbreviated stats
 ```
 
-```--pretty``` changes the log output to formats, other options inlcuding *short*, *full*, *fuller*. Use *format* to specify your own log output format.
+`--pretty` changes the log output to formats, other options inlcuding *short*, *full*, *fuller*. Use *format* to specify your own log output format.
 
 ```
 $ git log --pretty=online
 $ git log --pretty=format:"%h - %an, %ar : %s"
 ```
 
-```--since``` and ```--until``` are useful for time-limiting options.
+`--since` and `--until` are useful for time-limiting options.
 
-**Changing Last Commit**
+##### Changing Last Commit
 
 ```
 $ git commit --amend
 ```
 
-**Unstaging a Staged File**
+##### Unstaging a Staged File
 
 ```
 $ git reset HEAD [file]
 ```
 
-**Unmodifying a modified file**
+###### Unmodifying a modified file
 
 ```
 $ git checkout -- file  // to discard changes in working directory
 ```
 
-#### Working with Remotes
+### Working with Remotes
 
 remote repositories are versions of your project that are hosted on the Internet or network somewhere.
 
-**Displaying Remote Repositories**
+##### Displaying Remote Repositories
 
 ```
 $ cd [directory]
 $ git remote -v
 ```
 
-**Adding Remote Repositories**
+##### Adding Remote Repositories
 
 ```
 $ git remote add [shortname] [url]
 ```
 
-**Fetch and Pulling Remote**
+##### Fetch and Pulling Remote
 
 ```
 $ git fetch [remote-name]
 $ git fetch [shortname]  // if you have add remote repositories
 ```
 
-**Pushing Remote**
+##### Pushing Remote
 
 ```
 $ git push origin master  // push your master branch to your origin server
 ```
 
-**Inspecting Remote**
+##### Inspecting Remote
 
 ```
 $ git remote show origin
 ```
 
-**Removing and Renaming Remotes**
+##### Removing and Renaming Remotes
 
 ```
 $ git remote rename [old_shortname] [new_shortname]  // rename remote
 $ git remote rm [shortname]  // remove remote
 ```
 
-**Tagging**
+##### Tagging
 
 
 # Chapter 3 Git Branching
------
 
 killer feature
 
 Branching means you diverge from the main line of development and continue to do work without messing with that main line.
 
-#### Gib Object Type
+##### Gib Object Type
 
-This part of notes are taken from "O'Reilly: Version Control with Git".
-http://shop.oreilly.com/product/9780596520137.do
+This part of notes are taken from ["O'Reilly: Version Control with Git"](http://shop.oreilly.com/product/9780596520137.do).
 
 **Blob**
 
@@ -232,9 +226,7 @@ A *commit* object holds metadata for each change introduced into repository, inc
 
 A tag object assigns an arbitary yet presumably human readable name to a specific object, usually a commit.
 
-----
-notes ends here
-----
+-----
 
 A branch in Git is simply a light weight movable pointer to one of commits. The default branch name in Git is master.
 
@@ -244,7 +236,7 @@ A branch in Git is simply a light weight movable pointer to one of commits. The 
 $ git branch [new_branch]
 ```
 
-Git keeps a special pointer =HEAD=. This is a pointer to the local branch you're currently on. To switch to an existing branch, you run the =git checkout= command.
+Git keeps a special pointer `HEAD`. This is a pointer to the local branch you're currently on. To switch to an existing branch, you run the `git checkout` command.
 
 ```
 $ git checkout [branch_switch_to]
@@ -253,7 +245,7 @@ $ git checkout [branch_switch_to]
 **Merging Branch**
 
  - First checkout the branch you want to merge
- - Then run =git merge=
+ - Then run `git merge`
 
 ```
 $ git checkout [branch_to_merge]
@@ -274,9 +266,9 @@ If merge branches have more than one parents, Git calculate for best common ance
 
 ##### Basic Merge conflict
 
-If merge conflict, Git doesn't automatically create a new merge commit. Run =git status= to check conflicts.
+If merge conflict, Git doesn't automatically create a new merge commit. Run `git status` to check conflicts.
 
-To resolve conflicts, you can use =git mergetool= to open graphical tool.
+To resolve conflicts, you can use `git mergetool` to open graphical tool.
 
 ##### Branch Management
 
